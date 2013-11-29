@@ -55,7 +55,7 @@ public class RowFlagChange implements Change {
 
     @Override
     public void apply(Project project) {
-        Row row = project.rows.get(rowIndex);
+        Row row = project.getRows().get(rowIndex);
         if (oldFlagged == null) {
             oldFlagged = row.flagged;
         }
@@ -64,7 +64,7 @@ public class RowFlagChange implements Change {
 
     @Override
     public void revert(Project project) {
-        Row row = project.rows.get(rowIndex);
+        Row row = project.getRows().get(rowIndex);
         
         row.flagged = oldFlagged;
     }

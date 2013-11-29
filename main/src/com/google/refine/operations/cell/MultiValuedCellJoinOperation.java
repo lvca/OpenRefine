@@ -108,9 +108,9 @@ public class MultiValuedCellJoinOperation extends AbstractOperation {
         
         List<Row> newRows = new ArrayList<Row>();
         
-        int oldRowCount = project.rows.size();
+        int oldRowCount = project.getRows().size();
         for (int r = 0; r < oldRowCount; r++) {
-            Row oldRow = project.rows.get(r);
+            Row oldRow = project.getRows().get(r);
             
             if (oldRow.isCellBlank(keyCellIndex)) {
                 newRows.add(oldRow.dup());
@@ -118,7 +118,7 @@ public class MultiValuedCellJoinOperation extends AbstractOperation {
             }
             
             int r2 = r + 1;
-            while (r2 < oldRowCount && project.rows.get(r2).isCellBlank(keyCellIndex)) {
+            while (r2 < oldRowCount && project.getRows().get(r2).isCellBlank(keyCellIndex)) {
                 r2++;
             }
             
@@ -129,7 +129,7 @@ public class MultiValuedCellJoinOperation extends AbstractOperation {
             
             StringBuffer sb = new StringBuffer();
             for (int r3 = r; r3 < r2; r3++) {
-                Object value = project.rows.get(r3).getCellValue(cellIndex);
+                Object value = project.getRows().get(r3).getCellValue(cellIndex);
                 if (ExpressionUtils.isNonBlankData(value)) {
                     if (sb.length() > 0) {
                         sb.append(_separator);
@@ -139,7 +139,7 @@ public class MultiValuedCellJoinOperation extends AbstractOperation {
             }
             
             for (int r3 = r; r3 < r2; r3++) {
-                Row newRow = project.rows.get(r3).dup();
+                Row newRow = project.getRows().get(r3).dup();
                 if (r3 == r) {
                     newRow.setCell(cellIndex, new Cell(sb.toString(), null));
                 } else {

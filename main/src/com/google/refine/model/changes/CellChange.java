@@ -60,7 +60,7 @@ public class CellChange implements Change {
 
     @Override
     public void apply(Project project) {
-        project.rows.get(row).setCell(cellIndex, newCell);
+        project.getRows().get(row).setCell(cellIndex, newCell);
         
         Column column = project.columnModel.getColumnByCellIndex(cellIndex);
         column.clearPrecomputes();
@@ -69,7 +69,7 @@ public class CellChange implements Change {
 
     @Override
     public void revert(Project project) {
-        project.rows.get(row).setCell(cellIndex, oldCell);
+        project.getRows().get(row).setCell(cellIndex, oldCell);
         
         Column column = project.columnModel.getColumnByCellIndex(cellIndex);
         column.clearPrecomputes();

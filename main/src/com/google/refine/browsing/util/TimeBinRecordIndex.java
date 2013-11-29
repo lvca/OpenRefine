@@ -59,7 +59,7 @@ public class TimeBinRecordIndex extends TimeBinIndex {
             preprocessing();
             
             for (int i = record.fromRowIndex; i < record.toRowIndex; i++) {
-                Row row = project.rows.get(i);
+                Row row = project.getRows().get(i);
                 
                 processRow(project, rowEvaluable, allValues, i, row, bindings);
             }

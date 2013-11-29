@@ -79,7 +79,7 @@ public class ReconStats implements Jsonizable {
         int newTopics = 0;
         int matchedTopics = 0;
         
-        for (Row row : project.rows) {
+        for (Row row : project.getRows()) {
             Cell cell = row.getCell(cellIndex);
             if (cell != null && ExpressionUtils.isNonBlankData(cell.value)) {
                 nonBlanks++;

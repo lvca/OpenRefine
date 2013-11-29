@@ -57,9 +57,9 @@ public class MassRowChange implements Change {
     @Override
     public void apply(Project project) {
         synchronized (project) {
-            _oldRows = new ArrayList<Row>(project.rows);
-            project.rows.clear();
-            project.rows.addAll(_newRows);
+            _oldRows = new ArrayList<Row>(project.getRows());
+            project.getRows().clear();
+            project.getRows().addAll(_newRows);
             
             project.columnModel.clearPrecomputes();
             ProjectManager.singleton.getInterProjectModel().flushJoinsInvolvingProject(project.id);
@@ -71,8 +71,8 @@ public class MassRowChange implements Change {
     @Override
     public void revert(Project project) {
         synchronized (project) {
-            project.rows.clear();
-            project.rows.addAll(_oldRows);
+            project.getRows().clear();
+            project.getRows().addAll(_oldRows);
             
             project.update();
         }

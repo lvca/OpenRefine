@@ -264,8 +264,8 @@ public class StandardReconConfig extends ReconConfig {
                             RowDependency rd = project.recordModel.getRowDependency(rowIndex);
                             if (rd != null && rd.cellDependencies != null) {
                                 int contextRowIndex = rd.cellDependencies[cellIndex].rowIndex;
-                                if (contextRowIndex >= 0 && contextRowIndex < project.rows.size()) {
-                                    Row row2 = project.rows.get(contextRowIndex);
+                                if (contextRowIndex >= 0 && contextRowIndex < project.getRows().size()) {
+                                    Row row2 = project.getRows().get(contextRowIndex);
                                     
                                     cell2 = row2.getCell(detailCellIndex);
                                 }

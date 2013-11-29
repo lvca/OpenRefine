@@ -153,7 +153,7 @@ public class RdfTripleImporter extends ImportingParserBase {
             }
 
             for (Entry<String, List<Row>> entry : subjectToRows.entrySet()) {
-                project.rows.addAll(entry.getValue());
+                project.getRows().addAll(entry.getValue());
             }
         } catch (ModelException e) {
             exceptions.add(e);

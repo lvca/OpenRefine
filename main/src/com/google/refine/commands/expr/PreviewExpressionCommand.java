@@ -112,8 +112,8 @@ public class PreviewExpressionCommand extends Command {
                     Object result = null;
                     
                     int rowIndex = rowIndices.getInt(i);
-                    if (rowIndex >= 0 && rowIndex < project.rows.size()) {
-                        Row row = project.rows.get(rowIndex);
+                    if (rowIndex >= 0 && rowIndex < project.getRows().size()) {
+                        Row row = project.getRows().get(rowIndex);
                         Cell cell = row.getCell(cellIndex);
                             
                         try {

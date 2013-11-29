@@ -105,7 +105,7 @@ public class ExpressionNumericValueBinner implements RowVisitor, RecordVisitor {
         
         Properties bindings = ExpressionUtils.createBindings(project);
         for (int r = record.fromRowIndex; r < record.toRowIndex; r++) {
-            processRow(project, r, project.rows.get(r), bindings);
+            processRow(project, r, project.getRows().get(r), bindings);
         }
         
         updateCounts();

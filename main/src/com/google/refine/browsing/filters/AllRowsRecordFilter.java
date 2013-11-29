@@ -48,7 +48,7 @@ public class AllRowsRecordFilter implements RecordFilter {
     @Override
     public boolean filterRecord(Project project, Record record) {
         for (int r = record.fromRowIndex; r < record.toRowIndex; r++) {
-            if (!_rowFilter.filterRow(project, r, project.rows.get(r))) {
+            if (!_rowFilter.filterRow(project, r, project.getRows().get(r))) {
                 return false;
             }
         }

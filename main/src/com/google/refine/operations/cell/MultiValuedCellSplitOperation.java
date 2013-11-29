@@ -113,9 +113,9 @@ public class MultiValuedCellSplitOperation extends AbstractOperation {
         
         List<Row> newRows = new ArrayList<Row>();
         
-        int oldRowCount = project.rows.size();
+        int oldRowCount = project.getRows().size();
         for (int r = 0; r < oldRowCount; r++) {
-            Row oldRow = project.rows.get(r);
+            Row oldRow = project.getRows().get(r);
             if (oldRow.isCellBlank(cellIndex)) {
                 newRows.add(oldRow.dup());
                 continue;
@@ -147,8 +147,8 @@ public class MultiValuedCellSplitOperation extends AbstractOperation {
             for (int v = 1; v < values.length; v++) {
                 Cell newCell = new Cell(values[v].trim(), null);
                 
-                if (r2 < project.rows.size()) {
-                    Row oldRow2 = project.rows.get(r2);
+                if (r2 < project.getRows().size()) {
+                    Row oldRow2 = project.getRows().get(r2);
                     if (oldRow2.isCellBlank(cellIndex) && 
                         oldRow2.isCellBlank(keyCellIndex)) {
                         

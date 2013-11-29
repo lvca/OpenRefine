@@ -132,7 +132,7 @@ public class CsvExporterTests extends RefineTest {
     public void exportCsvWithLineBreaks(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, new Cell("line\n\n\nbreak", null));
+        project.getRows().get(1).cells.set(1, new Cell("line\n\n\nbreak", null));
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -149,7 +149,7 @@ public class CsvExporterTests extends RefineTest {
     public void exportCsvWithComma(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, new Cell("with, comma", null));
+        project.getRows().get(1).cells.set(1, new Cell("with, comma", null));
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -166,7 +166,7 @@ public class CsvExporterTests extends RefineTest {
     public void exportCsvWithQuote(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, new Cell("line has \"quote\"", null));
+        project.getRows().get(1).cells.set(1, new Cell("line has \"quote\"", null));
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -183,8 +183,8 @@ public class CsvExporterTests extends RefineTest {
     public void exportCsvWithEmptyCells(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, null);
-        project.rows.get(2).cells.set(0, null);
+        project.getRows().get(1).cells.set(1, null);
+        project.getRows().get(2).cells.set(0, null);
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -204,8 +204,8 @@ public class CsvExporterTests extends RefineTest {
         Date date = new Date();
 
         when(options.getProperty("printColumnHeader")).thenReturn("false");
-        project.rows.get(0).cells.set(0, new Cell(calendar, null));
-        project.rows.get(0).cells.set(1, new Cell(date, null));
+        project.getRows().get(0).cells.set(0, new Cell(calendar, null));
+        project.getRows().get(0).cells.set(1, new Cell(date, null));
 
         try {
             SUT.export(project, options, engine, writer);
@@ -239,7 +239,7 @@ public class CsvExporterTests extends RefineTest {
             for(int j = 0; j < noOfColumns; j++){
                 row.cells.add(new Cell("row" + i + "cell" + j, null));
             }
-            project.rows.add(row);
+            project.getRows().add(row);
         }
     }
 }

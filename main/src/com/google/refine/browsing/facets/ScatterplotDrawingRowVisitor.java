@@ -152,7 +152,7 @@ public class ScatterplotDrawingRowVisitor implements RowVisitor, RecordVisitor {
     @Override
     public boolean visit(Project project, Record record) {
         for (int r = record.fromRowIndex; r < record.toRowIndex; r++) {
-            visit(project, r, project.rows.get(r));
+            visit(project, r, project.getRows().get(r));
         }
         return false;
     }

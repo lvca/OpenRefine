@@ -192,7 +192,7 @@ public class Template {
             bindings.put("recordIndex", record.recordIndex);
 
             for (int r = record.fromRowIndex; r < record.toRowIndex; r++) {
-                Row row = project.rows.get(r);
+                Row row = project.getRows().get(r);
 
                 bindings.put("rowIndex", r);
 

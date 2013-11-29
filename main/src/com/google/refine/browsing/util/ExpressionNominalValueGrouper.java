@@ -129,7 +129,7 @@ public class ExpressionNominalValueGrouper implements RowVisitor, RecordVisitor 
         Properties bindings = ExpressionUtils.createBindings(project);
 
         for (int r = record.fromRowIndex; r < record.toRowIndex; r++) {
-            Row row = project.rows.get(r);
+            Row row = project.getRows().get(r);
             visitRow(project, r, row, bindings, record.recordIndex);
         }
 

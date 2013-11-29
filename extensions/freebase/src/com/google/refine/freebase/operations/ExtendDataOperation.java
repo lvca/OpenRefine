@@ -223,7 +223,7 @@ public class ExtendDataOperation extends EngineDependentOperation {
             int end;
             for (end = from; end < limit && ids.size() < 10; end++) {
                 int index = rowIndices.get(end);
-                Row row = _project.rows.get(index);
+                Row row = _project.getRows().get(index);
                 Cell cell = row.getCell(_cellIndex);
                 
                 ids.add(cell.recon.match.id);
@@ -238,7 +238,7 @@ public class ExtendDataOperation extends EngineDependentOperation {
             
             for (int i = from; i < end; i++) {
                 int index = rowIndices.get(i);
-                Row row = _project.rows.get(index);
+                Row row = _project.getRows().get(index);
                 Cell cell = row.getCell(_cellIndex);
                 String guid = cell.recon.match.id;
                 

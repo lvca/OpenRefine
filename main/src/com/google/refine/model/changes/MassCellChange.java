@@ -85,7 +85,7 @@ public class MassCellChange implements Change {
     @Override
     public void apply(Project project) {
         synchronized (project) {
-            List<Row> rows = project.rows;
+            List<Row> rows = project.getRows();
             
             for (CellChange cellChange : _cellChanges) {
                 rows.get(cellChange.row).setCell(cellChange.cellIndex, cellChange.newCell);
@@ -106,7 +106,7 @@ public class MassCellChange implements Change {
     @Override
     public void revert(Project project) {
         synchronized (project) {
-            List<Row> rows = project.rows;
+            List<Row> rows = project.getRows();
             
             for (CellChange cellChange : _cellChanges) {
                 rows.get(cellChange.row).setCell(cellChange.cellIndex, cellChange.oldCell);

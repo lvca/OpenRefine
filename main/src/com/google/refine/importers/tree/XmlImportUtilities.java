@@ -481,7 +481,7 @@ public class XmlImportUtilities extends TreeImportUtilities {
                     }
                 }
                 if (realRow != null) {
-                    project.rows.add(realRow);
+                    project.getRows().add(realRow);
                 }
             }
         }

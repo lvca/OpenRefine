@@ -81,10 +81,10 @@ public class RdfTripleImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.size(), 2);
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "subject");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "http://rdf.freebase.com/ns/music.artist.album");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "http://rdf.freebase.com/ns/en.blood_on_the_tracks");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "http://rdf.freebase.com/ns/en.blood_on_the_tracks");
     }
 
     @Test
@@ -101,24 +101,24 @@ public class RdfTripleImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "http://rdf.freebase.com/ns/music.artist.album");
 
         //rows
-        Assert.assertEquals(project.rows.size(), 3);
+        Assert.assertEquals(project.getRows().size(), 3);
         
         //row0
-        Assert.assertEquals(project.rows.get(0).cells.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "http://rdf.freebase.com/ns/en.blood_on_the_tracks");
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "http://rdf.freebase.com/ns/en.blood_on_the_tracks");
 
         //row1
-        Assert.assertEquals(project.rows.get(1).cells.size(), 2);
-        Assert.assertNull(project.rows.get(1).cells.get(0));
-        Assert.assertEquals(project.rows.get(1).cells.get(1).value, "http://rdf.freebase.com/ns/en.under_the_red_sky"); 
+        Assert.assertEquals(project.getRows().get(1).cells.size(), 2);
+        Assert.assertNull(project.getRows().get(1).cells.get(0));
+        Assert.assertEquals(project.getRows().get(1).cells.get(1).value, "http://rdf.freebase.com/ns/en.under_the_red_sky"); 
         Assert.assertEquals(project.recordModel.getRowDependency(1).cellDependencies[1].rowIndex, 0);
         Assert.assertEquals(project.recordModel.getRowDependency(1).cellDependencies[1].cellIndex, 0);
 
         //row2
-        Assert.assertEquals(project.rows.get(2).cells.size(), 2);
-        Assert.assertNull(project.rows.get(2).cells.get(0));
-        Assert.assertEquals(project.rows.get(2).cells.get(1).value, "http://rdf.freebase.com/ns/en.bringing_it_all_back_home");
+        Assert.assertEquals(project.getRows().get(2).cells.size(), 2);
+        Assert.assertNull(project.getRows().get(2).cells.get(0));
+        Assert.assertEquals(project.getRows().get(2).cells.get(1).value, "http://rdf.freebase.com/ns/en.bringing_it_all_back_home");
         Assert.assertEquals(project.recordModel.getRowDependency(2).cellDependencies[1].rowIndex, 0);
         Assert.assertEquals(project.recordModel.getRowDependency(2).cellDependencies[1].cellIndex, 0);
     }
@@ -138,18 +138,18 @@ public class RdfTripleImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "http://rdf.freebase.com/ns/music.artist.genre");
         
         //rows
-        Assert.assertEquals(project.rows.size(), 2);
+        Assert.assertEquals(project.getRows().size(), 2);
 
         //row0
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "http://rdf.freebase.com/ns/en.blood_on_the_tracks");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "http://rdf.freebase.com/ns/en.folk_rock");
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "http://rdf.freebase.com/ns/en.blood_on_the_tracks");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "http://rdf.freebase.com/ns/en.folk_rock");
 
         //row1
-        Assert.assertEquals(project.rows.get(1).cells.size(), 2);
-        Assert.assertNull(project.rows.get(1).cells.get(0));
-        Assert.assertEquals(project.rows.get(1).cells.get(1).value, "http://rdf.freebase.com/ns/en.bringing_it_all_back_home");
+        Assert.assertEquals(project.getRows().get(1).cells.size(), 2);
+        Assert.assertNull(project.getRows().get(1).cells.get(0));
+        Assert.assertEquals(project.getRows().get(1).cells.get(1).value, "http://rdf.freebase.com/ns/en.bringing_it_all_back_home");
         Assert.assertEquals(project.recordModel.getRowDependency(1).cellDependencies[1].rowIndex, 0);
         Assert.assertEquals(project.recordModel.getRowDependency(1).cellDependencies[1].cellIndex, 0);
     }
@@ -165,10 +165,10 @@ public class RdfTripleImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.size(), 2);
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "subject");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "http://rdf.freebase.com/ns/common.topic.alias");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "\"Robert Zimmerman\"@en");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "http://rdf.freebase.com/ns/en.bob_dylan");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "\"Robert Zimmerman\"@en");
     }    @Test
     
     public void parseRdfXml() throws UnsupportedEncodingException {
@@ -197,13 +197,13 @@ public class RdfTripleImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "subject");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "http://purl.org/dc/elements/1.1/title");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "http://purl.org/dc/elements/1.1/description");
-        Assert.assertEquals(project.rows.size(), 5);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "http://www.w3.org/TR/rdf-syntax-grammar");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "\"RDF/XML Syntax Specification (Revised)\"");
-        Assert.assertEquals(project.rows.get(3).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(3).cells.get(0).value, "http://example.org/buecher/baum");
-        Assert.assertEquals(project.rows.get(3).cells.get(1).value, "\"Der Baum\"@de");
-        Assert.assertEquals(project.rows.get(3).cells.get(2).value, "\"Das Buch ist außergewöhnlich\"@de");
+        Assert.assertEquals(project.getRows().size(), 5);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "http://www.w3.org/TR/rdf-syntax-grammar");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "\"RDF/XML Syntax Specification (Revised)\"");
+        Assert.assertEquals(project.getRows().get(3).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(3).cells.get(0).value, "http://example.org/buecher/baum");
+        Assert.assertEquals(project.getRows().get(3).cells.get(1).value, "\"Der Baum\"@de");
+        Assert.assertEquals(project.getRows().get(3).cells.get(2).value, "\"Das Buch ist außergewöhnlich\"@de");
     }
 }

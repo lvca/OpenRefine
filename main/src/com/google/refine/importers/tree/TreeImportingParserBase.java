@@ -88,7 +88,7 @@ abstract public class TreeImportingParserBase extends ImportingParserBase {
                 exceptions.add(e);
             }
             
-            if (limit > 0 && project.rows.size() >= limit) {
+            if (limit > 0 && project.getRows().size() >= limit) {
                 break;
             }
         }

@@ -108,8 +108,8 @@ public class ImportQADataOperation extends AbstractOperation {
         Map<Long, Recon> oldRecons = new HashMap<Long, Recon>();
         Map<Long, Recon> newRecons = new HashMap<Long, Recon>();
         
-        for (int r = 0; r < project.rows.size(); r++) {
-            Row row = project.rows.get(r);
+        for (int r = 0; r < project.getRows().size(); r++) {
+            Row row = project.getRows().get(r);
             
             for (int c = 0; c < row.cells.size(); c++) {
                 Cell cell = row.cells.get(c);

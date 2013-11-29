@@ -98,7 +98,7 @@ public class JsonImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 6);
 
-        Row row = project.rows.get(0);
+        Row row = project.getRows().get(0);
         Assert.assertNotNull(row);
         Assert.assertNotNull(row.getCell(1));
         Assert.assertEquals(row.getCell(1).value, "Author 1, The");
@@ -111,12 +111,12 @@ public class JsonImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 12);
 
-        Row row = project.rows.get(0);
+        Row row = project.getRows().get(0);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(), 4);
         Assert.assertNotNull(row.getCell(1));
         Assert.assertEquals(row.getCell(1).value, "Author 1, The");
-        Assert.assertEquals(project.rows.get(1).getCell(1).value, "Author 1, Another");
+        Assert.assertEquals(project.getRows().get(1).getCell(1).value, "Author 1, Another");
     }
 
     @Test
@@ -127,7 +127,7 @@ public class JsonImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 6);
 
-        Row row = project.rows.get(3);
+        Row row = project.getRows().get(3);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(), 4);
         Assert.assertNotNull(row.getCell(1));
@@ -143,11 +143,11 @@ public class JsonImporterTests extends ImporterTest {
 
         Assert.assertEquals( project.columnModel.getColumnByCellIndex(4).getName(), JsonImporter.ANONYMOUS + " - genre");
 
-        Row row0 = project.rows.get(0);
+        Row row0 = project.getRows().get(0);
         Assert.assertNotNull(row0);
         Assert.assertEquals(row0.cells.size(),4);
 
-        Row row5  = project.rows.get(5);
+        Row row5  = project.getRows().get(5);
         Assert.assertNotNull(row5);
         Assert.assertEquals(row5.cells.size(),5);
     }
@@ -304,54 +304,54 @@ public class JsonImporterTests extends ImporterTest {
         Assert.assertEquals( project.columnModel.getColumnByCellIndex(0).getName(), JsonImporter.ANONYMOUS + " - id");
         Assert.assertEquals( project.columnModel.getColumnByCellIndex(1).getName(), JsonImporter.ANONYMOUS + " - cell - cell");
 
-        Row row = project.rows.get(8);
+        Row row = project.getRows().get(8);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,""); // Make sure empty strings are preserved
 
         // null, true, false 0,1,-2.1,0.23,-0.24,3.14e100
 
-        row = project.rows.get(12);
+        row = project.getRows().get(12);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertNull(row.cells.get(1).value); 
 
-        row = project.rows.get(13);
+        row = project.getRows().get(13);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,Boolean.TRUE); 
         
-        row = project.rows.get(14);
+        row = project.getRows().get(14);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,Boolean.FALSE); 
         
-        row = project.rows.get(15);
+        row = project.getRows().get(15);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,Long.valueOf(0)); 
 
-        row = project.rows.get(16);
+        row = project.getRows().get(16);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,Long.valueOf(1)); 
 
-        row = project.rows.get(17);
+        row = project.getRows().get(17);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,Double.parseDouble("-2.1")); 
 
-        row = project.rows.get(18);
+        row = project.getRows().get(18);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,Double.valueOf((double)0.23)); 
         
-        row = project.rows.get(19);
+        row = project.getRows().get(19);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertEquals(row.cells.get(1).value,Double.valueOf((double)-0.24)); 
         
-        row = project.rows.get(20);
+        row = project.getRows().get(20);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(),2);
         Assert.assertFalse(Double.isNaN((Double) row.cells.get(1).value)); 

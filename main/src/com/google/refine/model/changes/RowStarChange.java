@@ -55,7 +55,7 @@ public class RowStarChange implements Change {
 
     @Override
     public void apply(Project project) {
-        Row row = project.rows.get(rowIndex);
+        Row row = project.getRows().get(rowIndex);
         if (oldStarred == null) {
             oldStarred = row.starred;
         }
@@ -64,7 +64,7 @@ public class RowStarChange implements Change {
 
     @Override
     public void revert(Project project) {
-        Row row = project.rows.get(rowIndex);
+        Row row = project.getRows().get(rowIndex);
         
         row.starred = oldStarred;
     }

@@ -85,7 +85,7 @@ abstract public class ImportingParserBase implements ImportingParser {
                 exceptions.add(e);
             }
             
-            if (limit > 0 && project.rows.size() >= limit) {
+            if (limit > 0 && project.getRows().size() >= limit) {
                 break;
             }
         }

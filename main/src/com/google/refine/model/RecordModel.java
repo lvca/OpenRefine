@@ -133,7 +133,7 @@ public class RecordModel implements Jsonizable {
 
     synchronized public void update(Project project) {
         synchronized (project) {
-            List<Row> rows = project.rows;
+            List<Row> rows = project.getRows();
             int rowCount = rows.size();
 
             ColumnModel columnModel = project.columnModel;

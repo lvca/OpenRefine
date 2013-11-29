@@ -214,7 +214,7 @@ public class ColumnAdditionByFetchingURLsOperation extends EngineDependentOperat
                 return;
             }
             
-            List<CellAtRow> urls = new ArrayList<CellAtRow>(_project.rows.size());
+            List<CellAtRow> urls = new ArrayList<CellAtRow>(_project.getRows().size());
             
             FilteredRows filteredRows = _engine.getAllFilteredRows();
             filteredRows.accept(_project, createRowVisitor(urls));

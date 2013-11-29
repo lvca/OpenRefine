@@ -52,8 +52,8 @@ public class NumericBinRowIndex extends NumericBinIndex {
         
         Properties bindings = ExpressionUtils.createBindings(project);
         
-        for (int i = 0; i < project.rows.size(); i++) {
-            Row row = project.rows.get(i);
+        for (int i = 0; i < project.getRows().size(); i++) {
+            Row row = project.getRows().get(i);
             
             preprocessing();
             

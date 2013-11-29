@@ -97,8 +97,8 @@ public class GetRowsCommand extends Command {
             Engine engine = getEngine(request, project);
             String callback = request.getParameter("callback");
             
-            int start = Math.min(project.rows.size(), Math.max(0, getIntegerParameter(request, "start", 0)));
-            int limit = Math.min(project.rows.size() - start, Math.max(0, getIntegerParameter(request, "limit", 20)));
+            int start = Math.min(project.getRows().size(), Math.max(0, getIntegerParameter(request, "start", 0)));
+            int limit = Math.min(project.getRows().size() - start, Math.max(0, getIntegerParameter(request, "limit", 20)));
             
             Pool pool = new Pool();
             Properties options = new Properties();
@@ -146,7 +146,7 @@ public class GetRowsCommand extends Command {
                 filteredRows.accept(project, visitor);
                 jsonWriter.endArray();
                 jsonWriter.key("filtered"); jsonWriter.value(rwv.total);
-                jsonWriter.key("total"); jsonWriter.value(project.rows.size());
+                jsonWriter.key("total"); jsonWriter.value(project.getRows().size());
             } else {
                 FilteredRecords filteredRecords = engine.getFilteredRecords();
                 RecordVisitor visitor = rwv;
@@ -242,7 +242,7 @@ public class GetRowsCommand extends Command {
             
             for (int r = record.fromRowIndex; r < record.toRowIndex; r++) {
                 try {
-                    Row row = project.rows.get(r);
+                    Row row = project.getRows().get(r);
                     
                     options.put("rowIndex", r);
                     

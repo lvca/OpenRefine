@@ -128,7 +128,7 @@ public class KeyValueColumnizeOperation extends AbstractOperation {
         Map<String, Row> groupByCellValuesToRow = new HashMap<String, Row>();
         
         List<Row> newRows = new ArrayList<Row>();
-        List<Row> oldRows = project.rows;
+        List<Row> oldRows = project.getRows();
         Row reusableRow = null;
         List<Row> currentRows = new ArrayList<Row>();
         String recordKey = null; // key which indicates the start of a record

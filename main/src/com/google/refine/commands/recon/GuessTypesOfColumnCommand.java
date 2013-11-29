@@ -130,7 +130,7 @@ public class GuessTypesOfColumnCommand extends Command {
         List<String> samples = new ArrayList<String>(SAMPLE_SIZE);
         Set<String> sampleSet = new HashSet<String>();
         
-        for (Row row : project.rows) {
+        for (Row row : project.getRows()) {
             Object value = row.getCellValue(cellIndex);
             if (ExpressionUtils.isNonBlankData(value)) {
                 String s = value.toString().trim();

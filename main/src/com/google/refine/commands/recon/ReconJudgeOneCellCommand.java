@@ -156,7 +156,7 @@ public class ReconJudgeOneCellCommand extends Command {
 
         @Override
         protected HistoryEntry createHistoryEntry(long historyEntryID) throws Exception {
-            Cell cell = _project.rows.get(rowIndex).getCell(cellIndex);
+            Cell cell = _project.getRows().get(rowIndex).getCell(cellIndex);
             if (cell == null || !ExpressionUtils.isNonBlankData(cell.value)) {
                 throw new Exception("Cell is blank or error");
             }

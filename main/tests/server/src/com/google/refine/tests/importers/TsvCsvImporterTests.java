@@ -114,11 +114,11 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -138,12 +138,12 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertTrue(project.rows.get(0).cells.get(1).value instanceof Long);
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, Long.parseLong("234"));
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertTrue(project.getRows().get(0).cells.get(1).value instanceof Long);
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, Long.parseLong("234"));
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -162,11 +162,11 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "Column 1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "Column 2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "Column 3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(groups = {  }, dataProvider = "CSV-TSV-AutoDetermine")
@@ -182,11 +182,11 @@ public class TsvCsvImporterTests extends ImporterTest {
             Assert.fail("Exception during file parse",e);
         }
         Assert.assertEquals(project.columnModel.columns.size(), 3);
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, " data1 ");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, " 3.4 ");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, " data3 ");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, " data1 ");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, " 3.4 ");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, " data3 ");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -202,11 +202,11 @@ public class TsvCsvImporterTests extends ImporterTest {
             Assert.fail("Exception during file parse",e);
         }
         Assert.assertEquals(project.columnModel.columns.size(), 3);
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, " data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, 12L);
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, " data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, " data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, 12L);
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, " data3");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -222,11 +222,11 @@ public class TsvCsvImporterTests extends ImporterTest {
             Assert.fail("Exception during file parse",e);
         }
         Assert.assertEquals(project.columnModel.columns.size(), 3);
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, " data1");
-        Assert.assertNull(project.rows.get(0).cells.get(1));
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, " data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, " data1");
+        Assert.assertNull(project.getRows().get(0).cells.get(1));
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, " data3");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -247,11 +247,11 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1 sub1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2 sub2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3 sub3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -274,14 +274,14 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(3).getName(), "Column 4");
         Assert.assertEquals(project.columnModel.columns.get(4).getName(), "Column 5");
         Assert.assertEquals(project.columnModel.columns.get(5).getName(), "Column 6");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 6);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
-        Assert.assertEquals(project.rows.get(0).cells.get(3).value, "data4");
-        Assert.assertEquals(project.rows.get(0).cells.get(4).value, "data5");
-        Assert.assertEquals(project.rows.get(0).cells.get(5).value, "data6");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 6);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().get(0).cells.get(3).value, "data4");
+        Assert.assertEquals(project.getRows().get(0).cells.get(4).value, "data5");
+        Assert.assertEquals(project.getRows().get(0).cells.get(5).value, "data6");
     }
 
     @Test(groups = { }, dataProvider = "CSV-TSV-AutoDetermine")
@@ -301,10 +301,10 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "\"To Be\" is often followed by \"or not To Be\"");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "\"To Be\" is often followed by \"or not To Be\"");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -325,11 +325,11 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -350,11 +350,11 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -379,11 +379,11 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1 sub1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2 sub2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3 sub3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(groups = {  }, dataProvider = "CSV-TSV-AutoDetermine")
@@ -411,15 +411,15 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1 sub1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2 sub2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3 sub3");
-        Assert.assertEquals(project.rows.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data-row1-cell1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data-row1-cell2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data-row1-cell3");
-        Assert.assertEquals(project.rows.get(1).cells.size(), 3);
-        Assert.assertEquals(project.rows.get(1).cells.get(0).value, "data-row2-cell1");
-        Assert.assertEquals(project.rows.get(1).cells.get(1).value, "data-row2-cell2");
-        Assert.assertNull(project.rows.get(1).cells.get(2));
+        Assert.assertEquals(project.getRows().size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data-row1-cell1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data-row1-cell2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data-row1-cell3");
+        Assert.assertEquals(project.getRows().get(1).cells.size(), 3);
+        Assert.assertEquals(project.getRows().get(1).cells.get(0).value, "data-row2-cell1");
+        Assert.assertEquals(project.getRows().get(1).cells.get(1).value, "data-row2-cell2");
+        Assert.assertNull(project.getRows().get(1).cells.get(2));
     }
 
     @Test(dataProvider = "CSV-TSV-AutoDetermine")
@@ -434,11 +434,11 @@ public class TsvCsvImporterTests extends ImporterTest {
             Assert.fail("Exception during file parse",e);
         }
         Assert.assertEquals(project.columnModel.columns.size(), 4);
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 4);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals(project.rows.get(0).cells.get(2).value, "data3");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 4);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().get(0).cells.get(2).value, "data3");
     }
 
     @Test(groups = { }, dataProvider = "CSV-TSV-AutoDetermine")
@@ -458,10 +458,10 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "\"To\n Be\" is often followed by \"or not To\n Be\"");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "\"To\n Be\" is often followed by \"or not To\n Be\"");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
     }
 
     @Test(groups = {  }, dataProvider = "CSV-TSV-AutoDetermine")
@@ -481,10 +481,10 @@ public class TsvCsvImporterTests extends ImporterTest {
         Assert.assertEquals(project.columnModel.columns.get(0).getName(), "col1");
         Assert.assertEquals(project.columnModel.columns.get(1).getName(), "col2");
         Assert.assertEquals(project.columnModel.columns.get(2).getName(), "col3");
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 2);
-        Assert.assertEquals(project.rows.get(0).cells.get(0).value, "A line with many \n\n\n\n\n empty lines");
-        Assert.assertEquals(project.rows.get(0).cells.get(1).value, "data2");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 2);
+        Assert.assertEquals(project.getRows().get(0).cells.get(0).value, "A line with many \n\n\n\n\n empty lines");
+        Assert.assertEquals(project.getRows().get(0).cells.get(1).value, "data2");
     }
 
     //---------------------read tests------------------------
@@ -500,11 +500,11 @@ public class TsvCsvImporterTests extends ImporterTest {
             Assert.fail("Exception during file parse",e);
         }
         
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 3);
-        Assert.assertEquals((String)project.rows.get(0).cells.get(0).value, "NDB_No");
-        Assert.assertEquals((String)project.rows.get(0).cells.get(1).value, "Shrt_Desc");
-        Assert.assertEquals((String)project.rows.get(0).cells.get(2).value, "Water");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 3);
+        Assert.assertEquals((String)project.getRows().get(0).cells.get(0).value, "NDB_No");
+        Assert.assertEquals((String)project.getRows().get(0).cells.get(1).value, "Shrt_Desc");
+        Assert.assertEquals((String)project.getRows().get(0).cells.get(2).value, "Water");
 
         verifyOptions();
     }
@@ -522,12 +522,12 @@ public class TsvCsvImporterTests extends ImporterTest {
             Assert.fail("Exception during file parse",e);
         }
         
-        Assert.assertEquals(project.rows.size(), 1);
-        Assert.assertEquals(project.rows.get(0).cells.size(), 4);
-        Assert.assertEquals((String)project.rows.get(0).cells.get(0).value, "data1");
-        Assert.assertEquals((String)project.rows.get(0).cells.get(1).value, "data2");
-        Assert.assertEquals((String)project.rows.get(0).cells.get(2).value, "data3");
-        Assert.assertEquals((String)project.rows.get(0).cells.get(3).value, "data4");
+        Assert.assertEquals(project.getRows().size(), 1);
+        Assert.assertEquals(project.getRows().get(0).cells.size(), 4);
+        Assert.assertEquals((String)project.getRows().get(0).cells.get(0).value, "data1");
+        Assert.assertEquals((String)project.getRows().get(0).cells.get(1).value, "data2");
+        Assert.assertEquals((String)project.getRows().get(0).cells.get(2).value, "data3");
+        Assert.assertEquals((String)project.getRows().get(0).cells.get(3).value, "data4");
 
         verifyOptions();
     }

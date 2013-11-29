@@ -137,7 +137,7 @@ public class ReconCopyAcrossColumnsOperation extends EngineDependentOperation {
             judgments.add(Recon.stringToJudgment(j));
         }
         
-        final List<CellChange> cellChanges = new ArrayList<CellChange>(project.rows.size());
+        final List<CellChange> cellChanges = new ArrayList<CellChange>(project.getRows().size());
         
         if (fromColumn != null && toColumns.size() > 0) {
             final Map<Object, Recon> cellValueToRecon = new HashMap<Object, Recon>();

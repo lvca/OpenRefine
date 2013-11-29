@@ -98,7 +98,7 @@ public class XmlImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 6);
 
-        Row row = project.rows.get(0);
+        Row row = project.getRows().get(0);
         Assert.assertNotNull(row);
         Assert.assertNotNull(row.getCell(1));
         Assert.assertEquals(row.getCell(1).value, "Author 1, The");
@@ -111,7 +111,7 @@ public class XmlImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 6);
 
-        Row row = project.rows.get(0);
+        Row row = project.getRows().get(0);
         Assert.assertNotNull(row);
         Assert.assertNotNull(row.getCell(1));
         Assert.assertEquals(row.getCell(1).value, "Author 1, The");
@@ -124,7 +124,7 @@ public class XmlImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 6);
         
-        Row row = project.rows.get(0);
+        Row row = project.getRows().get(0);
         Assert.assertNotNull(row);
         Assert.assertNotNull(row.getCell(1));
         Assert.assertEquals(row.getCell(1).value, "Author 1, The");
@@ -137,12 +137,12 @@ public class XmlImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 12);
 
-        Row row = project.rows.get(0);
+        Row row = project.getRows().get(0);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(), 4);
         Assert.assertNotNull(row.getCell(1));
         Assert.assertEquals(row.getCell(1).value, "Author 1, The");
-        Assert.assertEquals(project.rows.get(1).getCell(1).value, "Author 1, Another");
+        Assert.assertEquals(project.getRows().get(1).getCell(1).value, "Author 1, Another");
     }
 
     @Test
@@ -153,7 +153,7 @@ public class XmlImporterTests extends ImporterTest {
         log(project);
         assertProjectCreated(project, 4, 6);
 
-        Row row = project.rows.get(3);
+        Row row = project.getRows().get(3);
         Assert.assertNotNull(row);
         Assert.assertEquals(row.cells.size(), 4);
         Assert.assertNotNull(row.getCell(1));
@@ -169,11 +169,11 @@ public class XmlImporterTests extends ImporterTest {
 
         Assert.assertEquals(project.columnModel.getColumnByCellIndex(4).getName(), "book - genre");
 
-        Row row0 = project.rows.get(0);
+        Row row0 = project.getRows().get(0);
         Assert.assertNotNull(row0);
         Assert.assertEquals(row0.cells.size(),4);
 
-        Row row5  = project.rows.get(5);
+        Row row5  = project.getRows().get(5);
         Assert.assertNotNull(row5);
         Assert.assertEquals(row5.cells.size(),5);
     }

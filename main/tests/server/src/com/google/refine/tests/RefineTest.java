@@ -71,8 +71,8 @@ public class RefineTest {
         Assert.assertNotNull(project.columnModel);
         Assert.assertNotNull(project.columnModel.columns);
         Assert.assertEquals(project.columnModel.columns.size(), numCols);
-        Assert.assertNotNull(project.rows);
-        Assert.assertEquals(project.rows.size(), numRows);
+        Assert.assertNotNull(project.getRows());
+        Assert.assertEquals(project.getRows().size(), numRows);
     }
 
     /**
@@ -97,7 +97,7 @@ public class RefineTest {
             sb.append("; ");
         }
         logger.info(sb.toString());
-        for(Row r : project.rows){
+        for(Row r : project.getRows()){
             sb = new StringBuilder();
             for(int i = 0; i < r.cells.size(); i++){
                 Cell c = r.getCell(i);

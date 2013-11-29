@@ -122,16 +122,16 @@ public class ExcelImporterTests extends ImporterTest {
             Assert.fail(e.getMessage());
         }
         
-        Assert.assertEquals(project.rows.size(), ROWS);
-        Assert.assertEquals(project.rows.get(1).cells.size(), COLUMNS);
-        Assert.assertEquals(((Number)project.rows.get(1).getCellValue(0)).doubleValue(),1.1, EPSILON);
-        Assert.assertEquals(((Number)project.rows.get(2).getCellValue(0)).doubleValue(),2.2, EPSILON);
+        Assert.assertEquals(project.getRows().size(), ROWS);
+        Assert.assertEquals(project.getRows().get(1).cells.size(), COLUMNS);
+        Assert.assertEquals(((Number)project.getRows().get(1).getCellValue(0)).doubleValue(),1.1, EPSILON);
+        Assert.assertEquals(((Number)project.getRows().get(2).getCellValue(0)).doubleValue(),2.2, EPSILON);
 
-        Assert.assertFalse((Boolean)project.rows.get(1).getCellValue(1));
-        Assert.assertTrue((Boolean)project.rows.get(2).getCellValue(1));
+        Assert.assertFalse((Boolean)project.getRows().get(1).getCellValue(1));
+        Assert.assertTrue((Boolean)project.getRows().get(2).getCellValue(1));
         
-        Assert.assertEquals((String)project.rows.get(1).getCellValue(4)," Row 1 Col 5");
-        Assert.assertNull((String)project.rows.get(1).getCellValue(5));
+        Assert.assertEquals((String)project.getRows().get(1).getCellValue(4)," Row 1 Col 5");
+        Assert.assertNull((String)project.getRows().get(1).getCellValue(5));
 
         try {
             verify(options, times(1)).getInt("ignoreLines");

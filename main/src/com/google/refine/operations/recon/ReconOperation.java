@@ -215,7 +215,7 @@ public class ReconOperation extends EngineDependentOperation {
                 throw new Exception("No column named " + _columnName);
             }
             
-            _entries = new ArrayList<ReconEntry>(_project.rows.size());
+            _entries = new ArrayList<ReconEntry>(_project.getRows().size());
             _cellIndex = column.getCellIndex();
             
             FilteredRows filteredRows = engine.getAllFilteredRows();
@@ -258,7 +258,7 @@ public class ReconOperation extends EngineDependentOperation {
                 ReconJob job = _reconConfig.createJob(
                     _project, 
                     entry.rowIndex, 
-                    _project.rows.get(entry.rowIndex), 
+                    _project.getRows().get(entry.rowIndex), 
                     _columnName, 
                     entry.cell
                 );

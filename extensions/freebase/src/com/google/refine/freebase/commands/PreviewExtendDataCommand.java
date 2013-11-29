@@ -87,8 +87,8 @@ public class PreviewExtendDataCommand extends Command {
             Set<String> ids = new HashSet<String>();
             for (int i = 0; i < length; i++) {
                 int rowIndex = rowIndices.getInt(i);
-                if (rowIndex >= 0 && rowIndex < project.rows.size()) {
-                    Row row = project.rows.get(rowIndex);
+                if (rowIndex >= 0 && rowIndex < project.getRows().size()) {
+                    Row row = project.getRows().get(rowIndex);
                     Cell cell = row.getCell(cellIndex);
                     if (cell != null && cell.recon != null && cell.recon.match != null) {
                         topicNames.add(cell.recon.match.name);

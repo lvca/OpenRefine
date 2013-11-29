@@ -58,9 +58,9 @@ public class ConjunctiveFilteredRows implements FilteredRows {
         try {
             visitor.start(project);
 
-            int c = project.rows.size();
+            int c = project.getRows().size();
             for (int rowIndex = 0; rowIndex < c; rowIndex++) {
-                Row row = project.rows.get(rowIndex);
+                Row row = project.getRows().get(rowIndex);
                 if (matchRow(project, rowIndex, row)) {
                     if (visitRow(project, visitor, rowIndex, row)) {
                         break;

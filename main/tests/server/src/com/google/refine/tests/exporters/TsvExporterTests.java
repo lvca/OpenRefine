@@ -129,7 +129,7 @@ public class TsvExporterTests extends RefineTest {
     public void exportTsvWithLineBreaks(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, new Cell("line\n\n\nbreak", null));
+        project.getRows().get(1).cells.set(1, new Cell("line\n\n\nbreak", null));
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -146,7 +146,7 @@ public class TsvExporterTests extends RefineTest {
     public void exportTsvWithComma(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, new Cell("with\t tab", null));
+        project.getRows().get(1).cells.set(1, new Cell("with\t tab", null));
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -163,7 +163,7 @@ public class TsvExporterTests extends RefineTest {
     public void exportTsvWithQuote(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, new Cell("line has \"quote\"", null));
+        project.getRows().get(1).cells.set(1, new Cell("line has \"quote\"", null));
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -180,8 +180,8 @@ public class TsvExporterTests extends RefineTest {
     public void exportTsvWithEmptyCells(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, null);
-        project.rows.get(2).cells.set(0, null);
+        project.getRows().get(1).cells.set(1, null);
+        project.getRows().get(2).cells.set(0, null);
         try {
             SUT.export(project, options, engine, writer);
         } catch (IOException e) {
@@ -215,7 +215,7 @@ public class TsvExporterTests extends RefineTest {
             for(int j = 0; j < noOfColumns; j++){
                 row.cells.add(new Cell("row" + i + "cell" + j, null));
             }
-            project.rows.add(row);
+            project.getRows().add(row);
         }
     }
 }

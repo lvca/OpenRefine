@@ -135,9 +135,9 @@ public class DataExtensionChange implements Change {
                     project.columnModel.allocateNewCellIndex();
                 }
                 
-                _oldRows = new ArrayList<Row>(project.rows);
+                _oldRows = new ArrayList<Row>(project.getRows());
                 
-                _newRows = new ArrayList<Row>(project.rows.size());
+                _newRows = new ArrayList<Row>(project.getRows().size());
                 
                 int cellIndex = project.columnModel.getColumnByName(_baseColumnName).getCellIndex();
                 int keyCellIndex = project.columnModel.columns.get(project.columnModel.getKeyColumnIndex()).getCellIndex();
@@ -166,8 +166,8 @@ public class DataExtensionChange implements Change {
                         
                         int r2 = r + 1;
                         for (int subR = 1; subR < dataExtension.data.length; subR++) {
-                            if (r2 < project.rows.size()) {
-                                Row oldRow2 = project.rows.get(r2);
+                            if (r2 < project.getRows().size()) {
+                                Row oldRow2 = project.getRows().get(r2);
                                 if (oldRow2.isCellBlank(cellIndex) && 
                                     oldRow2.isCellBlank(keyCellIndex)) {
                                     
@@ -196,8 +196,8 @@ public class DataExtensionChange implements Change {
                 }
             }
             
-            project.rows.clear();
-            project.rows.addAll(_newRows);
+            project.getRows().clear();
+            project.getRows().addAll(_newRows);
             
             for (int i = 0; i < _columnNames.size(); i++) {
                 String name = _columnNames.get(i);
@@ -261,8 +261,8 @@ public class DataExtensionChange implements Change {
     @Override
     public void revert(Project project) {
         synchronized (project) {
-            project.rows.clear();
-            project.rows.addAll(_oldRows);
+            project.getRows().clear();
+            project.getRows().addAll(_oldRows);
             
             for (int i = 0; i < _columnNames.size(); i++) {
                 project.columnModel.columns.remove(_columnInsertIndex);

@@ -119,7 +119,7 @@ public class ProjectMetadataUtilities {
         if (p != null) {
             List<String> columnNames = p.columnModel.getColumnNames();
             String tempName = "<recovered project> - " + columnNames.size() 
-                    + " cols X " + p.rows.size() + " rows - "
+                    + " cols X " + p.getRows().size() + " rows - "
                     + StringUtils.join(columnNames,'|');
             p.dispose();
             long ctime = System.currentTimeMillis();

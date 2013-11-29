@@ -114,7 +114,7 @@ public class TransposeRowsIntoColumnsOperation extends AbstractOperation {
             }
         }
         
-        List<Row> oldRows = project.rows;
+        List<Row> oldRows = project.getRows();
         List<Row> newRows = new ArrayList<Row>(oldRows.size() / _rowCount);
         for (int r = 0; r < oldRows.size(); r += _rowCount) {
             Row firstNewRow = new Row(newColumns.size());

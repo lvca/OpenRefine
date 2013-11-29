@@ -70,15 +70,15 @@ public class MassRowColumnChange implements Change {
                 _oldColumns = new ArrayList<Column>(project.columnModel.columns);
             }
             if (_oldRows == null) {
-                _oldRows = new ArrayList<Row>(project.rows);
+                _oldRows = new ArrayList<Row>(project.getRows());
             }
             
             project.columnModel.columns.clear();
             project.columnModel.columns.addAll(_newColumns);
             project.columnModel.columnGroups.clear();
             
-            project.rows.clear();
-            project.rows.addAll(_newRows);
+            project.getRows().clear();
+            project.getRows().addAll(_newRows);
             
             project.update();
         }
@@ -93,8 +93,8 @@ public class MassRowColumnChange implements Change {
             project.columnModel.columnGroups.clear();
             project.columnModel.columnGroups.addAll(_oldColumnGroups);
             
-            project.rows.clear();
-            project.rows.addAll(_oldRows);
+            project.getRows().clear();
+            project.getRows().addAll(_oldRows);
             
             project.update();
         }

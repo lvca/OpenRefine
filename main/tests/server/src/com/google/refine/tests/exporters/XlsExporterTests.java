@@ -142,8 +142,8 @@ public class XlsExporterTests extends RefineTest {
     public void exportXlsWithEmptyCells(){
         CreateGrid(3,3);
 
-        project.rows.get(1).cells.set(1, null);
-        project.rows.get(2).cells.set(0, null);
+        project.getRows().get(1).cells.set(1, null);
+        project.getRows().get(2).cells.set(0, null);
         try {
             SUT.export(project, options, engine, stream);
         } catch (IOException e) {
@@ -176,7 +176,7 @@ public class XlsExporterTests extends RefineTest {
             for(int j = 0; j < noOfColumns; j++){
                 row.cells.add(new Cell("row" + i + "cell" + j, null));
             }
-            project.rows.add(row);
+            project.getRows().add(row);
         }
     }
 }

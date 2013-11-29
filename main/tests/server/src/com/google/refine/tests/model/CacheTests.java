@@ -135,7 +135,7 @@ public class CacheTests extends RefineTest {
         for (int i = 0; i < 5; i++) {
             Row row = new Row(5);
             row.setCell(0, new Cell(i < 4 ? "a":"b", null));
-            project.rows.add(row);
+            project.getRows().add(row);
         }
         engine.getAllRows().accept(project, new CountingRowVisitor(5)) ;
         engine.getAllFilteredRows().accept(project, new CountingRowVisitor(4));

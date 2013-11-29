@@ -183,8 +183,8 @@ public class ColumnSplitOperation extends EngineDependentOperation {
         }
         
         List<String> columnNames = new ArrayList<String>();
-        List<Integer> rowIndices = new ArrayList<Integer>(project.rows.size());
-        List<List<Serializable>> tuples = new ArrayList<List<Serializable>>(project.rows.size());
+        List<Integer> rowIndices = new ArrayList<Integer>(project.getRows().size());
+        List<List<Serializable>> tuples = new ArrayList<List<Serializable>>(project.getRows().size());
         
         FilteredRows filteredRows = engine.getAllFilteredRows();
         RowVisitor rowVisitor;

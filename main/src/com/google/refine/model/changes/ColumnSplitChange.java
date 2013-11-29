@@ -140,7 +140,7 @@ public class ColumnSplitChange implements Change {
                     int r = _rowIndices.get(i);
                     List<Serializable> tuple = _tuples.get(i);
                 
-                    Row oldRow = project.rows.get(r);
+                    Row oldRow = project.getRows().get(r);
                     Row newRow = oldRow.dup();
                     
                     _oldRows.add(oldRow);
@@ -206,7 +206,7 @@ public class ColumnSplitChange implements Change {
                 int r = _rowIndices.get(i);
                 Row newRow = _newRows.get(i);
                 
-                project.rows.set(r, newRow);
+                project.getRows().set(r, newRow);
             }
             
             for (int i = 0; i < _columnNames.size(); i++) {
@@ -233,7 +233,7 @@ public class ColumnSplitChange implements Change {
                 int r = _rowIndices.get(i);
                 Row oldRow = _oldRows.get(i);
                 
-                project.rows.set(r, oldRow);
+                project.getRows().set(r, oldRow);
             }
             
             if (_removeOriginalColumn) {

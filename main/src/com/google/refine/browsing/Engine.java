@@ -98,9 +98,9 @@ public class Engine implements Jsonizable {
                 try {
                     visitor.start(project);
 
-                    int c = project.rows.size();
+                    int c = project.getRows().size();
                     for (int rowIndex = 0; rowIndex < c; rowIndex++) {
-                        Row row = project.rows.get(rowIndex);
+                        Row row = project.getRows().get(rowIndex);
                         if (visitor.visit(project, rowIndex, row)) {
                             break;
                         }

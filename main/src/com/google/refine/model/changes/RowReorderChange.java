@@ -55,15 +55,15 @@ public class RowReorderChange implements Change {
     @Override
     public void apply(Project project) {
         synchronized (project) {
-            List<Row> oldRows = project.rows;
+            List<Row> oldRows = project.getRows();
             List<Row> newRows = new ArrayList<Row>(oldRows.size());
 
             for (Integer oldIndex : _rowIndices) {
                 newRows.add(oldRows.get(oldIndex));
             }
 
-            project.rows.clear();
-            project.rows.addAll(newRows);
+            project.getRows().clear();
+            project.getRows().addAll(newRows);
             project.update();
         }
     }
@@ -71,9 +71,9 @@ public class RowReorderChange implements Change {
     @Override
     public void revert(Project project) {
         synchronized (project) {
-            int count = project.rows.size();
+            int count = project.getRows().size();
 
-            List<Row> newRows = project.rows;
+            List<Row> newRows = project.getRows();
             List<Row> oldRows = new ArrayList<Row>(count);
 
             for (int r = 0; r < count; r++) {
@@ -86,8 +86,8 @@ public class RowReorderChange implements Change {
                 oldRows.set(oldIndex, row);
             }
 
-            project.rows.clear();
-            project.rows.addAll(oldRows);
+            project.getRows().clear();
+            project.getRows().addAll(oldRows);
             project.update();
         }
     }

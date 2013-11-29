@@ -99,10 +99,10 @@ public class ColumnRemovalChange extends ColumnChange {
             }
 
             _oldColumn = project.columnModel.columns.remove(_oldColumnIndex);
-            _oldCells = new CellAtRow[project.rows.size()];
+            _oldCells = new CellAtRow[project.getRows().size()];
             int cellIndex = _oldColumn.getCellIndex();
             for (int i = 0; i < _oldCells.length; i++) {
-                Row row = project.rows.get(i);
+                Row row = project.getRows().get(i);
                 
                 Cell oldCell = null;
                 if (cellIndex < row.cells.size()) {
@@ -124,7 +124,7 @@ public class ColumnRemovalChange extends ColumnChange {
             
             int cellIndex = _oldColumn.getCellIndex();
             for (CellAtRow cell : _oldCells) {
-                project.rows.get(cell.row).cells.set(cellIndex, cell.cell);
+                project.getRows().get(cell.row).cells.set(cellIndex, cell.cell);
             }
             
             project.columnModel.columnGroups.clear();

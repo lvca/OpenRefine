@@ -79,7 +79,7 @@ public class DenormalizeOperation extends AbstractOperation {
     protected HistoryEntry createHistoryEntry(Project project, long historyEntryID) throws Exception {
         List<Row> newRows = new ArrayList<Row>();
         
-        List<Row> oldRows = project.rows;
+        List<Row> oldRows = project.getRows();
         for (int r = 0; r < oldRows.size(); r++) {
             Row oldRow = oldRows.get(r);
             Row newRow = null;

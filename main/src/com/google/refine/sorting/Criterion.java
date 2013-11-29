@@ -88,7 +88,7 @@ abstract public class Criterion {
             Object finalKey = null;
 
             for (int r = record.fromRowIndex; r < record.toRowIndex; r++) {
-                Object key = makeKey(project, project.rows.get(r), r);
+                Object key = makeKey(project, project.getRows().get(r), r);
                 if (ExpressionUtils.isError(key)) {
                     error = key;
                 } else if (ExpressionUtils.isNonBlankData(key)) {

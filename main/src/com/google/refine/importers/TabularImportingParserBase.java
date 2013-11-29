@@ -199,10 +199,10 @@ abstract public class TabularImportingParserBase extends ImportingParserBase {
                                     project.columnModel.getColumnByName(fileNameColumnName).getCellIndex(),
                                     new Cell(fileSource, null));
                             }
-                            project.rows.add(row);
+                            project.getRows().add(row);
                         }
                         
-                        if (limit2 > 0 && project.rows.size() >= limit2) {
+                        if (limit2 > 0 && project.getRows().size() >= limit2) {
                             break;
                         }
                     }

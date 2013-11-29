@@ -93,7 +93,7 @@ public class RowFlagOperation extends EngineDependentOperation {
 protected HistoryEntry createHistoryEntry(Project project, long historyEntryID) throws Exception {
         Engine engine = createEngine(project);
         
-        List<Change> changes = new ArrayList<Change>(project.rows.size());
+        List<Change> changes = new ArrayList<Change>(project.getRows().size());
         
         FilteredRows filteredRows = engine.getAllFilteredRows();
         filteredRows.accept(project, createRowVisitor(project, changes));

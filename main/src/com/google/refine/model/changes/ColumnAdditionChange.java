@@ -101,7 +101,7 @@ public class ColumnAdditionChange extends ColumnChange {
             project.columnModel.columns.add(_columnIndex, column);
             try {
                 for (CellAtRow cell : _newCells) {
-                    project.rows.get(cell.row).setCell(_newCellIndex, cell.cell);
+                    project.getRows().get(cell.row).setCell(_newCellIndex, cell.cell);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -115,7 +115,7 @@ public class ColumnAdditionChange extends ColumnChange {
     public void revert(Project project) {
         synchronized (project) {
             for (CellAtRow cell : _newCells) {
-                Row row = project.rows.get(cell.row);
+                Row row = project.getRows().get(cell.row);
                 row.setCell(_newCellIndex, null);
             }
             

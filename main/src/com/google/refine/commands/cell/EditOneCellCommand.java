@@ -138,7 +138,7 @@ public class EditOneCellCommand extends Command {
 
         @Override
         protected HistoryEntry createHistoryEntry(long historyEntryID) throws Exception {
-            Cell cell = _project.rows.get(rowIndex).getCell(cellIndex);
+            Cell cell = _project.getRows().get(rowIndex).getCell(cellIndex);
             Column column = _project.columnModel.getColumnByCellIndex(cellIndex);
             if (column == null) {
                 throw new Exception("No such column");
